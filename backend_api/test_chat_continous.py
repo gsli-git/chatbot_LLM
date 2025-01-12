@@ -6,8 +6,6 @@ import os
 # client = AsyncOpenAI()
 # client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-OPENAI_API_KEY="sk-vXSF7kZDURpTqvw0kbwbV5DgKYzKfZdmfcuAXBiYDyT3BlbkFJjlB1FmpHVG0YN65HN81xZMlKX5MI9aDx9HeTAf1DQA"
-# openai.api_key="sk-vXSF7kZDURpTqvw0kbwbV5DgKYzKfZdmfcuAXBiYDyT3BlbkFJjlB1FmpHVG0YN65HN81xZMlKX5MI9aDx9HeTAf1DQA"
 
 
 client = AsyncOpenAI(api_key=OPENAI_API_KEY)
