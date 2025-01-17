@@ -1,9 +1,5 @@
 .env
 test_00_langchain_example_0.py
 test_00_langchain_example_00.py
-hw3_LLM.ipynb
-Manual_helper.ipynb
-attention.txt
-few_shot.txt
-instruct_gpt.txt
+
 
