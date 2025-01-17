@@ -6,9 +6,30 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain import hub
+from langchain_community.document_loaders import DirectoryLoader, PyPDFLoader
 
-# Loader for multiple text files
-loader = DirectoryLoader('./', glob="*.txt")
+from pinecone import Pinecone
+from langchain_pinecone import PineconeVectorStore
+
+
+import os 
+from dotenv import load_dotenv
+
+load_dotenv()
+open_api_key = os.getenv("OPENAI_API_KEY")
+pinecone_api_key = os.getenv("PINECONE_API_KEY")
+# print(open_api_key,'\n',pinecone_api_key)
+
+# Create embeddings for each chunk
+embeddings = OpenAIEmbeddings()
+
+pc = Pinecone(api_key=pinecone_api_key) 
+index_name = 'research-paper-on-vehicle-rag-index'
+index = pc.Index(index_name)
+# index.describe_index_stats()
+# vector_store = PineconeVectorStore(index=index, embedding=embeddings)
+
+loader = DirectoryLoader('', glob="./paper/*.pdf", loader_cls=PyPDFLoader)
 documents = loader.load()
 
 # Split documents into chunks
@@ -39,6 +60,6 @@ rag_chain = (
     | StrOutputParser()
 )
 
-result = rag_chain.invoke("What is attention?")
+result = rag_chain.invoke("What is Crash Pulse of a Vehicle? How to obtain Crash Pulse?")
 print(result)
 
