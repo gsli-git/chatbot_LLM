@@ -6,7 +6,7 @@ from .app import app
 # from .chat_langchain import call_chat
 from .langchain_example import call_chat
 
-demo_name = "RAG Chatbot"
+demo_name = "RAG Chatbot By Guosong Li"
 
 @app.route("/")
 def index():
