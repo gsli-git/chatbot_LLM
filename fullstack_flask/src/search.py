@@ -15,7 +15,6 @@ def search_news(keywords, num_results=10):
 
     return result
 
-
 def search_text(keywords, num_results=10):
     result = []
     with DDGS() as ddgs:

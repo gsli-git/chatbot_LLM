@@ -12,4 +12,3 @@ class ChatMessage(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow) 
     question = db.Column(db.String(200), nullable=False)
     answer = db.Column(db.String(500), nullable=False)
-
